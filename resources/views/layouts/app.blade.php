@@ -18,25 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <style>
-     .nav-login{
-         background-color:#34495E;
-         
-     }
-     .nav-link{
-        color:#ffffff !important;
-     }
-
-     body{
-         background-color:#C4F0CE;
-     }
-      
-    </style>
+    
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel nav-login">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}

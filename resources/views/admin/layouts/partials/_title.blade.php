@@ -1,0 +1,1 @@
+{{ (!empty($title))? $title:config('app.name') }}
