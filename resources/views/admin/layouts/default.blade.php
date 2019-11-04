@@ -23,7 +23,7 @@
         }
 
         nav{
-          background-color:#34495E;
+          background-color:#1b3744;
         }
     </style>
 

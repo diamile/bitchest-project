@@ -12,7 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #34495E;
+                /* background-color: #34495E; */
+                background-color: #1b3744;
                 color: #ffffff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
