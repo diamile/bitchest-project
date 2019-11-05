@@ -38,12 +38,8 @@ class walletsController extends Controller
 
         foreach($wallets as $wallet){
 
-           
-            
          $currency=Currency::where('id',$wallet->crypto_id)->first();
-         
-         dd($currency);
-           
+        
          $boughts = DB::table('histories')
          ->select(DB::raw(' max(histories.date) AS date, ANY_VALUE(histories.rate) AS rate, ANY_VALUE(histories.crypto_id) AS crypto_id'))
          ->where('crypto_id', $wallet->crypto_id)
@@ -51,15 +47,29 @@ class walletsController extends Controller
          ->orderBy('histories.crypto_id')
          ->get();
 
-        //  dd($boughts);
+
+         if (!isset($bought_list[$wallet->crypto_id])) {
+
+            $bought_list[$wallet->crypto_id]['currency'] = $currency;
+            $bought_list[$wallet->crypto_id]['quantity'] = $wallet->quantity;
+            foreach ($boughts as $bought) {
+
+                $rate = $wallet->quantity*$bought->rate;
+                $bought_list[$wallet->crypto_id]['bought'] = $rate;
+            }
+        }
+        else {
+            $bought_list[$wallet->crypto_id]['quantity'] += $wallet->quantity;
+
+        }
+        $total_wallet += ($wallet->quantity*$bought->rate)/1000;
+
+       
+
+         
 
         }
 
-
-
-        
-
-        
-        return view('customer.wallet',compact('title','users'));
+        return view('customer.wallet', compact('title', 'currency', 'bought_list', 'users','total_wallet'));
     }
 }
