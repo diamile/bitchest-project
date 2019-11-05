@@ -15,6 +15,12 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('crypto_id')->unsigned();
+            $table->foreign('crypto_id')
+                ->references('id')
+                ->on('currencies');
+            $table->datetime('date');
+            $table->decimal('rate',7,2);
             $table->timestamps();
         });
     }
