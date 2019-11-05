@@ -16,6 +16,19 @@ class CreateWalletsTable extends Migration
         Schema::create('wallets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
+            
+            //liaison entre ma table wallets et la table users
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('restrict')
+            ->onUpdate('restrict');
+        
+            //liaison entre ma table wallets et ma table currencies
+            $table->integer('crypto_id')->unsigned();
+            $table->foreign('crypto_id')
+                ->references('id')
+                ->on('currencies');
 
             $table->decimal('quantity',7,2);
             $table->timestamps();
