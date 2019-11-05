@@ -43,7 +43,7 @@
                                         <td>{{number_format($currency['quantity'])}}</td>
                                         <td>{{number_format($currency['bought'])}}€</td>
                                         <td>
-                                            <a href=""
+                                            <a href="{{route('wallet_user_crypto_money', ['crypto_id' => $currency['currency']->id])}}"
                                                class="btn btn-default btn-xs"><i class="fa fa-eye"
                                                                                  aria-hidden="true"></i>&nbsp;Historique d'achats</a>
                                         </td>

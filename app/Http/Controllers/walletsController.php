@@ -62,11 +62,8 @@ class walletsController extends Controller
             $bought_list[$wallet->crypto_id]['quantity'] += $wallet->quantity;
 
         }
-        $total_wallet += ($wallet->quantity*$bought->rate)/1000;
+        $total_wallet += ($wallet->quantity*$bought->rate);
 
-       
-
-         
 
         }
 
