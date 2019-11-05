@@ -19,3 +19,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//partie adminitrateurs
+Route::get('users', 'UsersController@index')->name('users')->middleware('auth');
+
+//partie clients
+Route::get('wallet', 'walletsController@index')->name('wallet')->middleware('auth');

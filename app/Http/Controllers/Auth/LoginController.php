@@ -25,7 +25,23 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/wallet';
+
+
+    protected function redirectTo()
+
+    {
+
+        if ($this->guard()->user()->isAdmin()) {
+
+            return 'users';
+
+        }
+
+        return '/wallet';
+
+    }
+
 
     /**
      * Create a new controller instance.
