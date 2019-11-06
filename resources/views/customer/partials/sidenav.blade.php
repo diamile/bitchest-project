@@ -7,7 +7,7 @@
         <ul class="list-group">
             <li class="list-group-item"><a href="{{ route('wallet') }}"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;Portefeuille</a></li>
             <li class="list-group-item"><a href="{{route('buy.index')}}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Acheter</a></li>
-            <li class="list-group-item"><a href=""><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Cours des crypto monnaies</a></li>
+            <li class="list-group-item"><a href="{{ route('cours_cryptos') }}"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;liste des Cours des crypto monnaies</a></li>
         </ul>
         <ul class="list-group">
             @foreach($users as $user)

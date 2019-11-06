@@ -26,6 +26,7 @@ Route::get('users', 'UsersController@index')->name('users')->middleware('auth');
 //partie clients
 Route::get('wallet', 'walletsController@index')->name('wallet')->middleware('auth');
 Route::get('wallet_user_crypto_money/{crypto_id}', 'walletUserController@index')->name('wallet_user_crypto_money')->middleware('auth');
+Route::get('cours_cryptomoney', 'CoursCryptoMoneyController@index')->name('cours_cryptos')->middleware('auth');
 
 Route::resource('buy', 'BuyCryptoController');
 
