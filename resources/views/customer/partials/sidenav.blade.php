@@ -1,7 +1,7 @@
 <div class="col-md-4 SideNav">
         <ul class="list-group">
             @foreach($users as $user)
-            <li class="list-group-item"><a href=""><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Données personnelles</a></li>
+            <li class="list-group-item"><a href="{{ route('customer_data.edit',$user->id) }}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Données personnelles</a></li>
             @endforeach
         </ul>
         <ul class="list-group">

@@ -13,7 +13,6 @@
 
                         <div class="panel-body">
 
-
                         <div class="col-md-12">
                             <h2>Mes achats</h2>
                             <table class="table table-striped">

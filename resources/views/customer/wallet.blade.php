@@ -45,7 +45,7 @@
                                         <td>
                                             <a href="{{route('wallet_user_crypto_money', ['crypto_id' => $currency['currency']->id])}}"
                                                class="btn btn-default btn-xs"><i class="fa fa-eye"
-                                                                                 aria-hidden="true"></i>&nbsp;Historique d'achats</a>
+                                                                                 aria-hidden="true"></i><input type="button" class="btn btn-primary" value="Historique des achats"/></a>
                                         </td>
                                     </tr>
                                 @endforeach

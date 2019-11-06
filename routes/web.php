@@ -29,6 +29,8 @@ Route::get('wallet_user_crypto_money/{crypto_id}', 'walletUserController@index')
 
 Route::resource('buy', 'BuyCryptoController');
 
+Route::resource('customer_data', 'CustomerDataController');
+
 
 
 
