@@ -14,7 +14,10 @@
 
 
                         <div class="col-md-12">
+                               
                            @foreach($users as $user)
+
+                           
 
                                  <form  method="post" action="{{ route('customer_data.update',$user->id) }}" >
                                     @csrf
@@ -24,13 +27,16 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="Name">Nom</label>
                                         <div class="col-md-5">                            
-                                            <input type="text" name="name" class="form-control"/>
+                                            <input type="text" name="name" class="form-control" value="{{$user->name}}"/>
+                                            @if ($errors->has('Nom'))
+                                                <p class="help-block">{{ $errors->first('Nom') }}</p>
+                                            @endif
                                         </div>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <label class="col-md-4 control-label" for="email">Email</label>
+                                        <label class="col-md-4 control-label" for="email" value="value="{{$user->email}}>Email</label>
                                         <div class="col-md-5">                            
                                                 <input type="email" name="email" class="form-control"/>
                                         </div>

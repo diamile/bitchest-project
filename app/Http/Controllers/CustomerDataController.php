@@ -35,6 +35,8 @@ class CustomerDataController extends Controller
         $title = 'Mes données personnelles';
 
         $users = User::where('id', Auth::id())->get();
+
+       
        
         return view('customer/customer_data', compact('title','total'));
     }
@@ -46,7 +48,6 @@ class CustomerDataController extends Controller
 
         $users = User::where('id', Auth::id())->get();
         $wallets = Wallet::where('user_id', Auth::id())->get();
-
 
         $total_wallet = 0;
             foreach ($wallets as $wallet) {
@@ -100,6 +101,7 @@ class CustomerDataController extends Controller
             //modification des données
 
             $user = User::find($id);
+
             $user->name       = Input::get('name');
             $user->email      = Input::get('email');
             $user->password       = Input::get('password');
