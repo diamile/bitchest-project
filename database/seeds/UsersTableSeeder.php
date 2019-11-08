@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
 
     {
-        // $users = factory(App\User::class, 4)->create();
+        $users = factory(App\User::class, 10)->create();
         
         DB::Table('users')->insert(array([
             'name' => 'Diamile',
@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'admin' => rand(0, 1)
         ],
         [
-            'name' => 'Gerome',
+            'name' => 'Geromes',
             'email' => 'gerome@live.fr',
             'password' => Hash::make('gerome'),
             'admin' => rand(0, 1)

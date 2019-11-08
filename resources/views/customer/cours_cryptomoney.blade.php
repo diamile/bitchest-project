@@ -33,7 +33,7 @@
                                         </td>
                                         <td>{{$crypto->rate}}</td>
                                         <td>
-                                            <a href="" class="btn btn-default btn-xs"><i class="fa fa-eye" aria-hidden="true"></i>Évolution</a>
+                                            <a href="{{route('graph',['crypto_id' => $crypto->id])}}" class="btn btn-default btn-xs"><i class="fa fa-eye" aria-hidden="true"></i><input type="submit" class="btn btn-success" value="Évolution"/></a>
                                             <a href="{{route('buy.index')}}" class="btn btn-primary btn-xs">Acheter</a>
                                         </td>
                                     </tr>

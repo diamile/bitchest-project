@@ -23,6 +23,7 @@ class HistoriesTableSeeder extends Seeder
         function cotationRate($cryptoname){
             return ord(substr($cryptoname,0,1)) + rand(0, 10);
         }
+        
 
         function getCotation($cryptoname){   
             return ((rand(0, 99)>40) ? 1 : -1) * ((rand(0, 99)>49) ? ord(substr($cryptoname,0,1)) : ord(substr($cryptoname,-1))) * (rand(1,10) * .01);
@@ -36,7 +37,7 @@ class HistoriesTableSeeder extends Seeder
             for ($i=0; $i < 30; $i++) {
 
                 $date = date('Y-m-d', strtotime(-$i.' day'));
-               DB::Table('histories')->insert(array([
+                DB::Table('histories')->insert(array([
                 'crypto_id' => $currencie->id,
                 'date' => $date,
                 'Rate' =>  getCotation($currencie->name) + $cotation
