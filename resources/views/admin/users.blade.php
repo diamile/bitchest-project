@@ -18,6 +18,46 @@
                             </div>
                         @endif
 
+                        <div class="col-md-12">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Statut</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($users as $user)
+                                    <tr>
+                                        <td>
+                                            {{ $user->name }}
+                                        </td>
+                                        <td>
+                                            @if ($user->admin)
+                                                {{$statut[0]}}
+                                            @else
+                                                {{$statut[1]}}
+                                            @endif
+                                        </td>
+                                        <td>
+                                           
+                                            <a href="" class="btn btn-warning btn-xs">
+                                            <i class="fa fa-edit" aria-hidden="true"></i> Voir/Modifier
+                                            </a>
+                                            
+                                             
+                                        </td>
+                                    </tr>
+                                @endforeach
+                               
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>

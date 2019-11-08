@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class usersController extends Controller
 {
@@ -16,8 +17,11 @@ class usersController extends Controller
  
      public function index(){
          $title = 'Liste de nos Clients';
- 
          
-         return view('admin.users',compact('title'));
+         $users = User::all();
+        
+         $statut = ['Aministrateur', 'Client'];
+        return view('admin/users', compact('title', 'users', 'statut'));
+         
      }
 }
