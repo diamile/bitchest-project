@@ -18,7 +18,7 @@ class usersController extends Controller
      public function index(){
          $title = 'Liste de nos Clients';
          
-         $users = User::all();
+         $users = User::paginate(6);
         
          $statut = ['Aministrateur', 'Client'];
         return view('admin/users', compact('title', 'users', 'statut'));

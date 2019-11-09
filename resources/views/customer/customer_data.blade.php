@@ -13,7 +13,7 @@
                     <div class="panel-body">
 
 
-                        <div class="col-md-12">
+                        <div class="col-md-12 card text-white bg-primary mb-3">
                                
                            @foreach($users as $user)
 
