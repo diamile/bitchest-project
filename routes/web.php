@@ -20,9 +20,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//partie adminitrateurs
+//partie administrateurs
 Route::get('users', 'UsersController@index')->name('users')->middleware('auth');
+
 Route::get('personnal_data_admin', 'personalDataAdminController@index')->name('personnal_data_admin')->middleware('auth');
+
+
+Route::resource('user_data', 'updateUserDataController');
+
+
+
 
 //partie clients
 Route::get('wallet', 'walletsController@index')->name('wallet')->middleware('auth');

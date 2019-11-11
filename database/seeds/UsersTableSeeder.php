@@ -21,6 +21,13 @@ class UsersTableSeeder extends Seeder
             'admin' => rand(0, 1)
         ],
         [
+            'name' => 'Eric',
+            'email' => 'Eric@gmail.com',
+            'password' => Hash::make('admin'),
+            'admin' => rand(0, 1)
+        ],
+
+        [
             'name' => 'Geromes',
             'email' => 'gerome@live.fr',
             'password' => Hash::make('gerome'),

@@ -33,7 +33,7 @@ class personalDataAdminController extends Controller
         $users = User::where('id', Auth::id())->get();
         $statut = ['Aministrateur', 'Client'];
        
-        return view('admin/personalDataAdmin', compact('title','users','statut')); 
+        return view('admin/user_data', compact('title','users','statut')); 
     }
 }
 

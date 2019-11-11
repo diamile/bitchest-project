@@ -17,7 +17,9 @@
                             @foreach($users as $user)
 
                                 
-                            <form method="POST" action="">
+                        <form method="POST" action="{{route('user_data.update',$user->id)}}">
+                                @csrf
+                                @method('PATCH')
 
                                 <legend>Modification des données</legend>
 
