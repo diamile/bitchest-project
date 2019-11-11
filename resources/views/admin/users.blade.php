@@ -42,10 +42,16 @@
                                         </td>
                                         <td>
                                            
-                                            <a href="" class="btn btn-warning btn-xs">
-                                            <i class="fa fa-edit" aria-hidden="true"></i> Voir/Modifier
-                                            </a>
-                                            
+                                                {!! Form::open([
+                                                    'method' => 'DELETE',
+                                                    'route' => ['user_data.destroy', $user->id]
+                                                ]) !!}
+                                                <a href="{{ route('user_data.edit',$user->id) }}" class="btn btn-warning btn-xs">
+                                                <i class="fa fa-edit" aria-hidden="true"></i> Voir/Modifier
+                                                </a>
+                                                
+                                                    {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-xs']) !!}
+                                                {!! Form::close() !!}
                                              
                                         </td>
                                     </tr>

@@ -113,7 +113,7 @@ class updateUserDataController extends Controller
 
         } else {
             
-            
+
             $user = User::find($id);
 
             $user->name       = Input::get('name');
@@ -137,9 +137,10 @@ class updateUserDataController extends Controller
      */
     public function destroy($id)
     {
-        $task = User::findOrFail($id);
+        
+        $deletedUser= User::findOrFail($id);
 
-        $task->delete();
+        $deletedUser->delete();
  
         Session::flash('flash_message', 'User successfully deleted!');
  
