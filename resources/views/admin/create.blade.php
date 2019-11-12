@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container PersonnalData">
+    <div class="container">
         <div class="row">
 
             @include('admin.layouts.partials._sidenav')
@@ -10,24 +10,29 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h1>{{$title}}</h1></div>
 
-                    <div class="panel-body ">
+                    <div class="panel-body">
 
-
+                         @foreach($errors->all() as $error)
+                            <div>
+                               {{$error}}
+                            </div>
+                       @endforeach
                         <div class="col-md-12">
-                            @foreach($users as $user)
-
-                                
-                        <form method="POST" action="{{route('user_data.update',$user->id)}}">
+                           
+                           
+                                <form method="POST" action="{{route('AdminUser.store')}}">
                                 @csrf
                                 @method('PATCH')
 
-                                <legend>Modification des données</legend>
+
+                                <legend>Création d'utilisateurs</legend>
 
                                  <div class="form-group">
                                     <label class="col-md-4 control-label" for="Name">Nom</label>
                                     <div class="col-md-5">
-                                        <input id="Name" name="Name" class="form-control input-md" type="text" value="{{ $user->name }}">
+                                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
                                         @if ($errors->has('Nom'))
+
                                             <p class="help-block">{{ $errors->first('Nom') }}</p>
                                         @endif
                                     </div>
@@ -36,7 +41,7 @@
                                         <div class="form-group">
                                             <label class="col-md-4 control-label" for="email">Email</label>
                                             <div class="col-md-5">
-                                                <input id="email" name="email" class="form-control input-md" type="email" value="{{ $user->email }}">
+                                               {!! Form::text('email', null, ['class' => 'form-control']) !!}
                                                  @if ($errors->has('Email'))
                                                     <p class="help-block">{{ $errors->first('Email') }}</p>
                                                 @endif
@@ -44,20 +49,24 @@
                                             </div>
                                         </div>
 
+
+                                        <div class="form-group">
+                                                <label class="col-md-4 control-label" for="password">Mot de pass</label>
+                                                <div class="col-md-5">
+                                                   {!! Form::text('password', null, ['class' => 'form-control']) !!}
+                                                     @if ($errors->has('Pasword'))
+                                                        <p class="help-block">{{ $errors->first('Password') }}</p>
+                                                    @endif
+    
+                                                </div>
+                                            </div>
+
+
+
                                         <div class="form-group">
                                             <label class="col-md-4 control-label" for="selectbasic">Statut</label>
                                             <div class="col-md-5">
-                                                <select id="selectbasic" name="admin" class="form-control">
-                                                    <option selected> 
-                                                        @if ($user->admin)
-                                                            {{$statut[0]}}
-                                                        @else
-                                                            {{$statut[1]}}
-                                                        @endif
-                                                    </option>
-                                                    <option value="1">{{ $statut[0]}}</option>
-                                                    <option value="0">{{$statut[1]}}</option>
-                                                </select>
+                                                {!! Form::select('admin',['1' => 'Aministrateur', '0' => 'Client'],null, ['class' => 'form-control']) !!}
                                             </div>
                                         </div>
 
@@ -65,14 +74,13 @@
                                         <div class="form-group">
                                             <label class="col-md-4 control-label" for="validation"></label>
                                             <div class="col-md-8">
-                                                <button type="submit" class="btn btn-primary">Modifier</button>
+                                                <input type="submit" class="btn btn-success" value="Créer"/>
                                             </div>
                                         </div>
-                                @endforeach
+                               
 
                                 
-                          
-
+                            </form>
                         </div>
 
                     </div>

@@ -8,6 +8,6 @@
         </ul>
 
         <ul class="list-group">
-                <li class="list-group-item"><a href=""><i class="fa fa-child" aria-hidden="true"></i> Création d'utilisateurs</a></li> 
+                <li class="list-group-item"><a href="{{route('AdminUser.create')}}"><i class="fa fa-child" aria-hidden="true"></i> Création d'utilisateurs</a></li> 
         </ul>
 </div>

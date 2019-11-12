@@ -29,6 +29,10 @@ Route::get('crypto', 'CryptoAdminController@index')->name('crypto')->middleware(
 
 
 Route::resource('user_data', 'updateUserDataController');
+Route::resource('AdminUser', 'CreateUserAdminController');
+Route::patch('store', 'CreateUserAdminController@store')->name('AdminUser.store');
+
+
 
 
 //partie clients
