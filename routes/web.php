@@ -25,10 +25,10 @@ Route::get('users', 'UsersController@index')->name('users')->middleware('auth');
 
 Route::get('personnal_data_admin', 'personalDataAdminController@index')->name('personnal_data_admin')->middleware('auth');
 
+Route::get('crypto', 'CryptoAdminController@index')->name('cryptos_admin')->middleware('auth');
+
 
 Route::resource('user_data', 'updateUserDataController');
-
-
 
 
 //partie clients
