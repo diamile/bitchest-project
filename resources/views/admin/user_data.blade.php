@@ -6,7 +6,7 @@
 
             @include('admin.layouts.partials._sidenav')
 
-            <div class="col-md-8">
+            <div class="col-md-8 card text-white bg-primary mb-3">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h1>{{$title}}</h1></div>
 
