@@ -21,28 +21,29 @@
                             @foreach($users as $user)
 
                             
-                           
-                             <form method="POST" action="{{route('user_data.update',$user->id)}}">
-                                 @csrf
-                               @method('PATCH')
+                            {!! Form::model($user, [
+                                'method' => 'PATCH',
+                                'route' => ['user_data.update',$user->id]
+                            ]) !!}
                                 
 
                                 <legend>Modification des données</legend>
 
-                                <div class="form-group">
-                                        <label class="col-md-4 control-label" for="Name">Nom</label>
-                                        <div class="col-md-5">
-                                            <input id="Name" name="name" class="form-control input-md" type="text" value="{{ $user->name }}">
-                                            @if ($errors->has('Nom'))
-                                                <p class="help-block">{{ $errors->first('Nom') }}</p>
-                                            @endif
-                                        </div>
+                                 <div class="form-group">
+                                    <label class="col-md-4 control-label" for="Name">Nom</label>
+                                    <div class="col-md-5">
+                                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                                        @if ($errors->has('Nom'))
+
+                                            <p class="help-block">{{ $errors->first('Nom') }}</p>
+                                        @endif
                                     </div>
-    
-                                    <div class="form-group">
+                                </div>
+
+                                        <div class="form-group">
                                             <label class="col-md-4 control-label" for="email">Email</label>
                                             <div class="col-md-5">
-                                                <input id="email" name="email" class="form-control input-md" type="email" value="{{ $user->email }}">
+                                               {!! Form::text('email', null, ['class' => 'form-control']) !!}
                                                  @if ($errors->has('Email'))
                                                     <p class="help-block">{{ $errors->first('Email') }}</p>
                                                 @endif
@@ -50,28 +51,24 @@
                                             </div>
                                         </div>
 
-
                                         <div class="form-group">
-                                                <label class="col-md-4 control-label" for="selectbasic">Statut</label>
-                                                <div class="col-md-5">
-                                                    <select id="selectbasic" name="admin" class="form-control">
-                                                        <option value="1">{{ $statut[0]}}</option>
-                                                        <option value="0">{{$statut[1]}}</option>
-                                                    </select>
-                                                </div>
+                                            <label class="col-md-4 control-label" for="selectbasic">Statut</label>
+                                            <div class="col-md-5">
+                                                {!! Form::select('admin',['1' => 'Aministrateur', '0' => 'Client'],null, ['class' => 'form-control']) !!}
                                             </div>
+                                        </div>
 
                                         <!-- Actions -->
                                         <div class="form-group">
-                                                <label class="col-md-4 control-label" for="validation"></label>
-                                                <div class="col-md-8">
-                                                    <button type="submit" class="btn btn-primary">Modifier</button>
-                                                </div>
+                                            <label class="col-md-4 control-label" for="validation"></label>
+                                            <div class="col-md-8">
+                                                {!! Form::submit('Modifier', ['class' => 'btn btn-success']) !!}
                                             </div>
+                                        </div>
                                 @endforeach
 
                                 
-                        </form>
+                           {!! Form::close() !!}
                         </div>
 
                     </div>
