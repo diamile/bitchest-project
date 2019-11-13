@@ -2,9 +2,17 @@
 
 @section('content')
 <div class="container py-5">
-    <div class=" col-md-6 offset-md-3">
-        <div class="card card-body">
-            <h4 class="">
+    <div  class="col-md-6 offset-md-3">
+        <div style='background-color: #1b3744;color:white' class="card card-body">
+
+                <div class="card-header">
+                        <a class="navbar-logo" href="{{ url('/') }}">
+                            <img src="{{URL::asset('images/bitchest_logo.png')}}" width="150" height="50" />
+                        </a>
+                </div>
+               
+
+            <h4 class="card-titles">
                 <div class="card-title">@lang('Connexion')</div>
             </h4>
             <div class="card-body">

@@ -46,7 +46,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    
                     <img src="{{URL::asset('images/bitchest_logo.png')}}" width="150" height="50" />
                     
                 </a>

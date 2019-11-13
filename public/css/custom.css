@@ -1,0 +1,20 @@
+body
+{
+    /*background-color: #343a40;*/
+    padding-top: 70px;
+
+}
+
+nav{
+  background-color:#1b3744;
+}
+
+.navbar-logo{
+  display:table;
+  margin:0 auto;
+}
+
+.card-titles{
+  text-align:center;
+  margin-top:20px;
+}
