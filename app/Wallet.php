@@ -21,4 +21,8 @@ class Wallet extends Model
         return $this->hasOne('App\Currency','id');
     }
 
+    public function cryptohistory(){
+        return $this->hasOne('App\Transaction');
+    }
+
 }
