@@ -117,7 +117,7 @@ class updateUserDataController extends Controller
             $user->admin       = Input::get('admin');
             $user->save();
 
-            Session::flash('flash_message', 'User successfully modified!');
+            Session::flash('flash_message', 'Utilisateur modifié avec succés!');
          
             return redirect('users');
          }
@@ -138,7 +138,7 @@ class updateUserDataController extends Controller
 
         $deletedUser->delete();
  
-        Session::flash('flash_message', 'User successfully deleted!');
+        Session::flash('flash_message', 'Utilisateur supprimée avec succés!');
  
         return redirect('users');
     }

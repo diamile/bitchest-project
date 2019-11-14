@@ -8,8 +8,9 @@
 
             <div class="col-md-8 card text-white bg-primary mb-3">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h1>{{$title}}</h1></div>
+                        <div class="panel-heading"><h3 class="text-center">{{$title}}</h3></div><br>
 
+                        <hr style="background-color:white;">
                     <div class="panel-body">
 
                          @foreach($errors->all() as $error)
@@ -25,7 +26,7 @@
                                 @method('PATCH')
 
 
-                                <legend>Création d'utilisateurs</legend>
+                                
 
                                  <div class="form-group">
                                     <label class="col-md-4 control-label" for="Name">Nom</label>

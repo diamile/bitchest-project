@@ -34,7 +34,7 @@ class CreateUserAdminController extends Controller
 
     public function create()
     {
-        $title='création d\'un nouveau utiliateurs';
+        $title='Création d\'un nouveau utilisateur';
         return view('admin.create',compact('title'));
     }  
 

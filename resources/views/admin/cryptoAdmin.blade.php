@@ -8,7 +8,10 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h1>{{$title}}</h1></div>
+                    
+                        <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+                                <h3 class="text-center">{{$title}}</h3>
+                       </div>
 
                     <div class="panel-body">
 
