@@ -2,6 +2,12 @@
 
 use Illuminate\Database\Seeder;
 
+   /*
+    |----------------------------------------------------------------------------------------------------------------------
+    |  Creation de mon seeder UsersTableSeeder afin d'inserer les données personnelles des utilisateurs dans la table users.
+    |-----------------------------------------------------------------------------------------------------------------------
+  */
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -9,6 +15,12 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
+
+    /*
+    |------------------------------------------------------------------------------
+    |  Insertion des informations personnelles des utilisateurs dans ma table users.
+    |------------------------------------------------------------------------------
+    */
     public function run()
 
     {

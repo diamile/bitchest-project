@@ -2,6 +2,11 @@
 
 use Illuminate\Database\Seeder;
 
+   /*
+    |-------------------------------------------------------------------------------------------------------------------------
+    |  Creation de mon seeder CurrencyTableSeeder afin d'inserer les noms et logos des cryto monnaies dans ma table currencies.
+    |--------------------------------------------------------------------------------------------------------------------------
+  */ 
 class CurrencyTableSeeder extends Seeder
 {
     /**
@@ -9,8 +14,15 @@ class CurrencyTableSeeder extends Seeder
      *
      * @return void
      */
+    
     public function run()
     {
+
+      /*
+    |-----------------------------------------------------------------------------
+    |  Inserertion  des noms et logos des cryto monnaies dans ma table currencies.
+    |-----------------------------------------------------------------------------
+    */ 
         DB::Table('currencies')->insert(array(
             
             [

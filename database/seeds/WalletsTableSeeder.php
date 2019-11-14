@@ -2,6 +2,11 @@
 
 use Illuminate\Database\Seeder;
 
+ /*
+    |--------------------------------------------------------------------------------------------
+    |  Creation de mon seeder WalletsTableSeeder afin d'inserer des données dans la table wallets
+    |--------------------------------------------------------------------------------------------
+  */
 class WalletsTableSeeder extends Seeder
 {
     /**
@@ -9,8 +14,16 @@ class WalletsTableSeeder extends Seeder
      *
      * @return void
      */
+
+     
     public function run()
     {
+    
+    /*
+    |----------------------------------------------
+    |  Insertion  des données dans la table wallets
+    |----------------------------------------------
+    */
         DB::Table('wallets')->insert(array([
             'user_id' => 1,
             'crypto_id' => 1,

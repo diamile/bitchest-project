@@ -4,6 +4,12 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
+  /*
+    |------------------------------------------------------------------------------------------------
+    |  Creation de mon seeder UsersTableSeeder afin d'inserer les données dans la table transactions.
+    |------------------------------------------------------------------------------------------------
+  */
+
 class TransactionsTableSeeder extends Seeder
 {
     /**
@@ -17,6 +23,11 @@ class TransactionsTableSeeder extends Seeder
         return Carbon::createFromDate(null, rand(1, 12), rand(1, 28));
     }
 
+     /*
+    |-----------------------------------------------------------------------------
+    | Inserer des données dans la table transactions.
+    |-----------------------------------------------------------------------------
+  */
     public function run()
     {
         $History = DB::table('histories')
