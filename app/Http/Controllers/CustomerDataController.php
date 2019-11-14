@@ -44,7 +44,7 @@ class CustomerDataController extends Controller
 
     public function edit($id)
     {
-        $title = 'Mes données personnelles';
+        $title = 'Données personnelles';
 
         $users = User::where('id', Auth::id())->get();
         $wallets = Wallet::where('user_id', Auth::id())->get();

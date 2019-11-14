@@ -8,8 +8,7 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h1>{{$title}}</h1></div>
-
+                    
                     <div class="panel-body">
 
 
@@ -22,7 +21,12 @@
                                  <form  method="post" action="{{ route('customer_data.update',$user->id) }}" >
                                     @csrf
                                     @method('PATCH')
-                                    <legend>Modification de mes données personnelles</legend>
+
+                                    <div class="panel-heading"><h3>{{$title}}</h3></div><br>
+
+                                    <legend class="text-center">Modification de mes données personnelles</legend>
+
+                                    <hr style="background-color:white;">
 
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="Name">Nom</label>
@@ -56,7 +60,7 @@
                                         <label class="col-md-4 control-label" for="validation"></label>
                                         <div class="col-md-8">
                         
-                                            <input type="submit" value="Modifier mes données" class="btn btn-primary" />
+                                            <input type="submit" value="Modifier mes données" class="btn btn-success" />
 
                                         </div>
                                     </div>
