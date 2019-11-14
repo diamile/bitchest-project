@@ -11,6 +11,13 @@ class CreateHistoriesTable extends Migration
      *
      * @return void
      */
+
+    
+    /*
+    |-------------------------------------------------------------------------------------------------------------------------------------------------------
+    | Création de ma table histories et mes differentes champs id, date,rate, et crypto_id qui est un clé etrangére faiasant reference à ma table currencies
+    |-------------------------------------------------------------------------------------------------------------------------------------------------------
+  */  
     public function up()
     {
         Schema::create('histories', function (Blueprint $table) {
@@ -30,6 +37,13 @@ class CreateHistoriesTable extends Migration
      *
      * @return void
      */
+
+
+    /*
+    |------------------------------------------------------
+    | Fonction qui sera appellée quand on fait un rollback
+    |-----------------------------------------------------
+  */  
     public function down()
     {
         Schema::dropIfExists('histories');

@@ -11,8 +11,16 @@ class CreateCurrenciesTable extends Migration
      *
      * @return void
      */
+
+
+     /*
+    |----------------------------------------------------------------------------
+    | Création de ma table currencies et mes differentes champs id, name, et logo
+    |----------------------------------------------------------------------------
+  */  
     public function up()
     {
+        
         Schema::create('currencies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
@@ -21,11 +29,19 @@ class CreateCurrenciesTable extends Migration
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *
      * @return void
      */
+
+
+     /*
+    |------------------------------------------------------
+    | Fonction qui sera executée quand on fait un rollback
+    |------------------------------------------------------
+  */  
     public function down()
     {
         Schema::dropIfExists('currencies');
