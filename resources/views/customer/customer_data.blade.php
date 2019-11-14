@@ -22,9 +22,9 @@
                                     @csrf
                                     @method('PATCH')
 
-                                    <div class="panel-heading"><h3>{{$title}}</h3></div><br>
+                                    <div class="panel-heading"><h3 class="text-center">{{$title}}</h3></div><br>
 
-                                    <legend class="text-center">Modification de mes données personnelles</legend>
+                                    
 
                                     <hr style="background-color:white;">
 

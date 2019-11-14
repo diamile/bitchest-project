@@ -8,9 +8,12 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h2 class="text-center">{{$title}}</h2></div><br>
 
                     <div class="panel-body">
+
+                            <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+                                    <h3 class="text-center">{{$title}}</h3>
+                           </div>
 
                         @if(Session::has('flash_message'))
                             <div class="alert alert-success">
@@ -42,8 +45,8 @@
                                         <td>{{number_format($currency['bought'])}}€</td>
                                         <td>
                                             <a href="{{route('wallet_user_crypto_money', ['crypto_id' => $currency['currency']->id])}}"
-                                               class="btn btn-default btn-xs"><i class="fa fa-eye"
-                                                aria-hidden="true"></i><input type="button" class="btn btn-primary" value="Historique des achats"/></a>
+                                               class="btn btn-default btn-xs">
+                                                <input type="button" class="btn btn-primary" value="Historique des achats"/></a>
                                         </td>
                                     </tr>
                                 @endforeach

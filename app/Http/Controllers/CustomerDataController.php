@@ -36,8 +36,6 @@ class CustomerDataController extends Controller
 
         $users = User::where('id', Auth::id())->get();
 
-       
-       
         return view('customer/customer_data', compact('title','total'));
     }
 

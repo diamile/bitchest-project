@@ -8,9 +8,13 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>{{$title}}</h3></div>
+                    
 
                     <div class="panel-body">
+                            <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+                                    <h3 class="text-center">{{$title}}</h3>
+                           </div>
+
                     @foreach($errors->all() as $error)
                             <div>
                                {{$error}}

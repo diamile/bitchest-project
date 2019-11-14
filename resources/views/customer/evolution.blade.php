@@ -8,7 +8,7 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h1><img src="{{URL::asset('/images')}}/{{$crypto->logo}}"/>&nbsp;{{$crypto->name}}{{$title}}</h1></div>
+                    <div class="panel-heading"><h3><img src="{{URL::asset('/images')}}/{{$crypto->logo}}"/>&nbsp;{{$crypto->name}}{{$title}}</h3></div>
                     <div class="panel-body">
                                
                                 {!! $chart->html() !!}

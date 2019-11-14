@@ -30,7 +30,7 @@ class EvolutionCryptoMoneyController extends Controller
      */
     public function index(Request $request, $crypto_id)
     {
-        $title = ' - Courbe de progression';
+        $title = ' - Courbe de d\'evolution';
         $rates = History::where('crypto_id', '=', $crypto_id)->get();
         $users = User::where('id', Auth::id())->get();
         $crypto = Currency::find($crypto_id);
@@ -60,6 +60,7 @@ class EvolutionCryptoMoneyController extends Controller
 
         $chart = Charts::create('line', 'highcharts')
                 //inversion pour afficher par ordre chronologique
+                
                 ->Labels(array_reverse($date))
                 ->Values(array_reverse($rate))
                 ->colors(['#1b3744'])

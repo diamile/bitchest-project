@@ -19,7 +19,7 @@
                                 <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
                                         <h3 class="text-center">{{$title}}</h3>
                                </div>
-                               
+
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -40,7 +40,9 @@
                                         </td>
                                         <td>{{$crypto->rate}}</td>
                                         <td>
-                                            <a href="{{route('evolution',['crypto_id' => $crypto->id])}}" class="btn btn-default btn-xs"><i class="fa fa-eye" aria-hidden="true"></i><input type="submit" class="btn btn-success" value="Évolution"/></a>
+                                            <a href="{{route('evolution',['crypto_id' => $crypto->id])}}" class="btn btn-default btn-xs"><i class="fa fa-line-chart"></i>
+                                                    <input type="submit" class="btn btn-success" value="Évolution"/>
+                                            </a>
                                             <a href="{{route('buy.index')}}" class="btn btn-primary btn-xs">Acheter</a>
                                         </td>
                                     </tr>
