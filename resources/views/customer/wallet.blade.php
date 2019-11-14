@@ -8,7 +8,7 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h1>{{$title}}</h1></div>
+                    <div class="panel-heading"><h2 class="text-center">{{$title}}</h2></div><br>
 
                     <div class="panel-body">
 
@@ -17,9 +17,7 @@
                                 {{ Session::get('flash_message') }}
                             </div>
                         @endif
-                        <div class="col-md-12">
-                            <p>Voici la liste de vos crypto monnaies.</p>
-                        </div>
+                        
 
                         <div class="col-md-12">
                             <table class="table table-striped">
@@ -45,7 +43,7 @@
                                         <td>
                                             <a href="{{route('wallet_user_crypto_money', ['crypto_id' => $currency['currency']->id])}}"
                                                class="btn btn-default btn-xs"><i class="fa fa-eye"
-                                                                                 aria-hidden="true"></i><input type="button" class="btn btn-primary" value="Historique des achats"/></a>
+                                                aria-hidden="true"></i><input type="button" class="btn btn-primary" value="Historique des achats"/></a>
                                         </td>
                                     </tr>
                                 @endforeach

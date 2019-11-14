@@ -11,7 +11,7 @@
         </ul>
         <ul class="list-group">
             @foreach($users as $user)
-                <li class="list-group-item">Mon solde en Euros : <strong>{{($total_wallet)}} €</strong></li>
+                <li class="list-group-item card text-white bg-primary mb-3"><strong>SOLDE</strong> :&nbsp; &nbsp;<strong>{{($total_wallet)}} €</strong></li>
             @endforeach
         </ul>
     </div>

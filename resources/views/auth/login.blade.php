@@ -6,7 +6,7 @@
         <div style='background-color: #1b3744;color:white' class="card card-body">
 
                 <div class="card-header">
-                        <a class="navbar-logo" href="{{ url('/') }}">
+                        <a class="navbar-logo" href="{{ url('/login') }}">
                             <img src="{{URL::asset('images/bitchest_logo.png')}}" width="150" height="50" />
                         </a>
                 </div>
