@@ -8,7 +8,7 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h1>{{$title}}</h1></div>
+                    <div class="panel-heading"><h3>{{$title}}</h3></div>
 
                     <div class="panel-body">
                     @foreach($errors->all() as $error)
@@ -19,25 +19,12 @@
                         <div class="col-md-12 card text-white bg-primary mb-3">
                             @foreach($users as $user)
 
-                           {{-- {!! Form::model($user, [
-                                'method' => 'PATCH',
-                                'route' => ['buy.create']
-                                
-                            ]) !!} --}}
                             <form  method="post" action="{{ route('buy.create') }}" >
                                     @csrf
                                     @method('PATCH')
-                                    <legend>J'achète : </legend>
+                                    <legend>Achat : </legend><br>
+                                    <hr style="background-color:white">
 
-                                    {{-- <div class="form-group">
-                                        <label class="col-md-4 control-label" for="quantity">Quantité</label>
-                                        <div class="col-md-5">
-                                            {!! Form::text('quantity', null, ['class' => 'form-control']) !!}
-                                            @if ($errors->has('Quantité'))
-                                                <p class="help-block">{{ $errors->first('Quantité') }}</p>
-                                            @endif
-                                        </div>
-                                    </div> --}}
 
                                     <div class="form-group">
                                             <label class="col-md-4 control-label" for="quantity">Quantité</label>
@@ -61,7 +48,7 @@
                                     <div class="form-group">
                                         <label class="col-md-4 control-label" for="validate"></label>
                                         <div class="col-md-4">
-                                           <input type="submit" class="btn btn-primary"/>
+                                           <input type="submit" class="btn btn-success"/>
                                         </div>
                                     </div>
 
