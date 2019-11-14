@@ -4,8 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+   /*
+    |-------------------------------------------------------------------------------------------------------
+    |  Création de mon model Wallet (portefeuille) qui me permet de faire des requétes sur ma table wallets
+    |-------------------------------------------------------------------------------------------------------
+  */ 
+
+  
 class Wallet extends Model
 {
+
+  /*
+    |-------------------------
+    |  mes champs modifiables
+    |-------------------------
+  */ 
     protected $fillable=[
       'user_id',
       'quantity',
@@ -13,6 +26,11 @@ class Wallet extends Model
     ];
 
 
+    /*
+    |--------------------------------------------------------------------------------------------
+    |  Création de mes relations entre le model Wallet et les models User,Currency et Transaction
+    |--------------------------------------------------------------------------------------------
+  */ 
     public function user(){
         return $this->hasMany('App\User');
     }

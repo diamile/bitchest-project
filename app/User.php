@@ -6,38 +6,40 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+  /*
+    |-----------------------------
+    |  Creation de mon model user 
+    |-----------------------------
+  */ 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+     /*
+    |---------------------------------------
+    |  mes champs modifiable avec $fillable
+    |---------------------------------------
+  */ 
     protected $fillable = [
         'name', 'email', 'password','admin'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+   
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+    
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-   //verification si l'utilisatteur est un administrateur ou pas
+  
+     /*
+    |-------------------------------------------------------------------------------------------------------------
+    |  Creation de ma fonction qui permet de verifier si la personne connectée est un administrateur ou un clients
+    |--------------------------------------------------------------------------------------------------------------
+  */ 
     public function isAdmin(){
 
         if($this->admin == 1){
@@ -51,3 +53,5 @@ class User extends Authenticatable
     }
 
 }
+
+
