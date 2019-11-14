@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
 
 @section('content')
-<div class="container py-5">
+<div  class="container py-5">
     <div  class="col-md-6 offset-md-3">
         <div style='background-color: #1b3744;color:white' class="card card-body">
 

@@ -16,15 +16,11 @@
                                
                            @foreach($users as $user)
 
-                           
-
                                  <form  method="post" action="{{ route('customer_data.update',$user->id) }}" >
                                     @csrf
                                     @method('PATCH')
 
                                     <div class="panel-heading"><h3 class="text-center">{{$title}}</h3></div><br>
-
-                                    
 
                                     <hr style="background-color:white;">
 
