@@ -8,11 +8,11 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-
+                    {{-- {{Session::get('prix_vente')}} --}}
                     <div class="panel-body">
 
                             <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
-                                    <h3 class="text-center">{{$title}}</h3>
+                                    <h3 class="text-center">{{$title}} valeur: {{Session::get('prix_vente')}} €</h3>
                            </div>
 
                         @if(Session::has('flash_message'))
@@ -42,7 +42,7 @@
                                             </a>
                                         </td>
                                         <td>{{number_format($currency['quantity'])}}</td>
-                                        <td>{{number_format($currency['bought'])}}€</td>
+                                        <td id="bought">{{number_format($currency['bought'])}}€</td>
                                         <td>
                                             <a href="{{route('wallet_user_crypto_money', ['crypto_id' => $currency['currency']->id])}}"
                                                class="btn btn-default btn-xs">

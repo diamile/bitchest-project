@@ -8,13 +8,15 @@
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    {{--<div class="panel-heading"><h1><img src="{{URL::asset('/images')}}/{{$logo->logo}}"/>&nbsp;{{$title}}</h1></div>--}}
-                        <div class="panel-heading"><h1>{{$title}}</h1></div>
-
+                     
                         <div class="panel-body">
 
+                            <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+                                <h3 class="text-center">{{$title}}</h3>
+                           </div>
+
                         <div class="col-md-12">
-                            <h2>Mes achats</h2>
+                            {{-- <h2>Mes achats</h2> --}}
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -34,7 +36,7 @@
                                         
                                         <td>{{$capital_gain}} €</td>
                                         {{-- <td><a href="{{route('sell')}}" class="btn btn-primary btn-xs">Vendre</a></td> --}}
-                                        <td><a href="" class="btn btn-primary btn-xs">Vendre</a></td>
+                                    <td><a href="{{route('destroyCrypto',$transaction->id)}}" class="btn btn-primary btn-xs">Vendre</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

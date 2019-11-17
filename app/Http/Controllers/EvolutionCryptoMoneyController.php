@@ -57,12 +57,12 @@ class EvolutionCryptoMoneyController extends Controller
 
         
 
-
         $chart = Charts::create('line', 'highcharts')
                 //inversion pour afficher par ordre chronologique
                 
                 ->Labels(array_reverse($date))
                 ->Values(array_reverse($rate))
+                
                 ->colors(['#1b3744'])
                 ->Dimensions(700,500)
                 ->Responsive(false);

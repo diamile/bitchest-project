@@ -39,7 +39,9 @@ class Transaction extends Model
 	public function cryptohistory() 
 	{
 		return $this->belongsTo('History');
-	}
+  }
+  
+ 
 }
 
 

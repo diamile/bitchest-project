@@ -38,6 +38,9 @@ Route::patch('store', 'CreateUserAdminController@store')->name('AdminUser.store'
 //partie clients
 Route::get('wallet', 'walletsController@index')->name('wallet')->middleware('auth');
 Route::get('wallet_user_crypto_money/{crypto_id}', 'walletUserController@index')->name('wallet_user_crypto_money')->middleware('auth');
+
+Route::get('destroy/{crypto_id}','walletUserController@destroy')->name('destroyCrypto')->middleware('auth');
+
 Route::get('cours_cryptomoney', 'CoursCryptoMoneyController@index')->name('cours_cryptos')->middleware('auth');
 
 

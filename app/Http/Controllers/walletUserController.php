@@ -9,19 +9,28 @@ use Illuminate\Http\Request;
 use App\Transaction;
 use App\Wallet;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use App\User;
+use Illuminate\Database\Eloquent\Collection;
 
 class walletUserController  extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+
+    public $buy_euro;
+     /*
+    |----------------------------------------------------------------------------
+    |  Creation de walletUserController afin de returner ma page wallet_crypto_mone
+    |----------------------------------------------------------------------------
+  */
+   
+    public function __construct(Collection $buy_euro)
     {
+        $this->buy_euro=$buy_euro;
+
         $this->middleware('auth');
     }
+
+   
 
     /**
      * Show the application dashboard.
@@ -71,6 +80,7 @@ class walletUserController  extends Controller
 
         //Récupération des transaction d'une crypto particulière de l'utilisateur en cours
         $transactions = array();
+        
         foreach ($wallets as $wallet) {
             $transactions = Transaction::where('wallet_id', $wallet->id)->get(); 
             $boughts = DB::table('histories')
@@ -96,7 +106,7 @@ class walletUserController  extends Controller
 
         }
 
-      
+
 
         //prix en euros lors de l'achat
 
@@ -107,6 +117,7 @@ class walletUserController  extends Controller
         //prix en euros maintenant
         $sell_euro = $boughts_rate[0]->quantity * $rate;
 
+       
         //plus-value
         $capital_gain = $sell_euro - $buy_euro;
 
@@ -118,7 +129,31 @@ class walletUserController  extends Controller
         }
 
 
-        return view('customer/wallet_crypto_money', compact('title', 'transactions', 'total', 'users', 'rate', 'capital_gain', 'crypto','total_wallet'));
+        return view('customer/wallet_crypto_money', compact('title', 'transactions', 'total', 'users', 'rate', 'capital_gain', 'crypto','total_wallet','sell_euro'));
+    }
+
+
+
+
+    public function destroy($id){
+        $destroyCrypto=wallet::find($id);
+        $showProduct=Transaction::find($id)->wallet;
+        $quantity=$showProduct->quantity;
+        $history=History::find($id)->rate;
+        
+       $prix_vente=0;
+
+        $prix_vente+=$quantity*$history;
+
+        Session::put('prix_vente', $prix_vente);
+      
+        $destroyCrypto->delete();
+
+        Session::flash('flash_message', 'Votre crypto monnaie a  été vendu avec succées !');
+
+          return redirect('/wallet')->with('success','prix_vente');
+
+    
     }
 }
 
