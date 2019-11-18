@@ -48,6 +48,7 @@ class walletsController extends Controller
 
         $total_wallet=0;
 
+
         foreach($wallets as $wallet){
 
          $currency=Currency::where('id',$wallet->crypto_id)->first();
@@ -59,7 +60,7 @@ class walletsController extends Controller
          ->orderBy('histories.crypto_id')
          ->get();
 
-      
+         //recuperation des prix et quantités de chaque crypto monnaie acheté.
          if (!isset($bought_list[$wallet->crypto_id])) {
 
             $bought_list[$wallet->crypto_id]['currency'] = $currency;
@@ -74,6 +75,8 @@ class walletsController extends Controller
             $bought_list[$wallet->crypto_id]['quantity'] += $wallet->quantity;
 
         }
+        
+        //totale de mon solde
         $total_wallet += ($wallet->quantity*$bought->rate);
 
 

@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\User;
 
+ /*
+    |------------------------------------------------------------------------------------------------------
+    | creation de personalDataAdminController qui affiche les données personnelles de l'utilisateur encours
+    |------------------------------------------------------------------------------------------------------
+*/
 class personalDataAdminController extends Controller
 {
     /**
@@ -27,6 +32,13 @@ class personalDataAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     /*
+    |-------------------------------------------------------------------------------------------
+    |  method index qui me permet d'afficher les données personnelles de l'utilisateur encours
+    |-------------------------------------------------------------------------------------------
+   */
+    
     public function index()
     {
          $title = "Données de l'utilisateur";

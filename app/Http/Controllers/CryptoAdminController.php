@@ -8,6 +8,12 @@ use App\History;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
+/*
+    |------------------------------------------------------------------------------------------
+    |  Creation de CryptoAdminController afin d'afficher la liste des crypto monnaie coté admin
+    |------------------------------------------------------------------------------------------
+ */
+
 class CryptoAdminController extends Controller
 {
     /**

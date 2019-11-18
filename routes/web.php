@@ -18,34 +18,40 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-//partie administrateurs
+ /*
+    |------------------------------------------------
+    | Les routes qui gérent la partie administrateurs
+    |-------------------------------------------------
+*/
 Route::get('users', 'UsersController@index')->name('users')->middleware('auth');
 
 Route::get('personnal_data_admin', 'personalDataAdminController@index')->name('personnal_data_admin')->middleware('auth');
 
 Route::get('crypto', 'CryptoAdminController@index')->name('crypto')->middleware('auth');
 
-
 Route::resource('user_data', 'updateUserDataController');
+
 Route::resource('AdminUser', 'CreateUserAdminController');
+
 Route::patch('store', 'CreateUserAdminController@store')->name('AdminUser.store');
 
 
 
-
-//partie clients
+/*
+    |----------------------------------------
+    | Les routes qui gérent la partie client
+    |------------------------------------------
+*/
 Route::get('wallet', 'walletsController@index')->name('wallet')->middleware('auth');
+
 Route::get('wallet_user_crypto_money/{crypto_id}', 'walletUserController@index')->name('wallet_user_crypto_money')->middleware('auth');
 
 Route::get('destroy/{crypto_id}','walletUserController@destroy')->name('destroyCrypto')->middleware('auth');
 
 Route::get('cours_cryptomoney', 'CoursCryptoMoneyController@index')->name('cours_cryptos')->middleware('auth');
 
-
 Route::get('graph/{crypto_id}', 'EvolutionCryptoMoneyController@index')->name('evolution')->middleware('auth');
-
 
 Route::resource('buy', 'BuyCryptoController');
 

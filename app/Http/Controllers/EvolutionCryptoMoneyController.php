@@ -11,6 +11,11 @@ use App\User;
 use DB;
 use App\Wallet;
 
+  /*
+    |-------------------------------------------------------------------------------------------------------------------------------------
+    | Creation de EvolutionCryptoMoneyController afin tracer les courbes d'evolutions dde chaque crypto monnaie enfonction du temps(jours)
+    |----------------------------------------------------------------------------------------------------------------------------------------
+*/
 class EvolutionCryptoMoneyController extends Controller
 {
     /**
@@ -28,9 +33,19 @@ class EvolutionCryptoMoneyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
     public function index(Request $request, $crypto_id)
     {
+    
         $title = ' - Courbe de d\'evolution';
+        
+    /*
+    |-----------------------------------------------------------------------------------------------------------------------
+    |  recuperation du taux du crypto monnaie cliqué afin de voir son evolution ceci permet à l'utilisateur de vendre ou pas.
+    |------------------------------------------------------------------------------------------------------------------------
+     */
+       
         $rates = History::where('crypto_id', '=', $crypto_id)->get();
         $users = User::where('id', Auth::id())->get();
         $crypto = Currency::find($crypto_id);
@@ -40,13 +55,13 @@ class EvolutionCryptoMoneyController extends Controller
         $rate = [];
         $date = [];
 
+        //taux
         for ($i=0; $i < 30; $i++) {
             array_push($rate, $rates[$i]->rate);
         }
 
         
-
-        // Modification du format de date pour avoir jour-mois-annee
+        // modification des date en jour-mois-années
         for ($j=0; $j < 30; $j++) {
             $array_date = explode(' ', $rates[$j]->date);
             $new_format = explode('-',$array_date[0] );
@@ -56,18 +71,21 @@ class EvolutionCryptoMoneyController extends Controller
         }
 
         
-
+     /*
+    |-----------------------------------------------------------------------------------------------
+    |  Création d'une courbe d'evolution des crypto-monnaies: evolution du taux en fonction du temps
+    |-----------------------------------------------------------------------------------------------
+     */
         $chart = Charts::create('line', 'highcharts')
-                //inversion pour afficher par ordre chronologique
                 
                 ->Labels(array_reverse($date))
                 ->Values(array_reverse($rate))
-                
                 ->colors(['#1b3744'])
                 ->Dimensions(700,500)
                 ->Responsive(false);
 
         $total_wallet = 0;
+
             foreach ($wallets as $wallet) {
                 $Currency = Currency::where('id', $wallet->crypto_id)->first();
                 $boughts = DB::table('histories')
@@ -90,6 +108,7 @@ class EvolutionCryptoMoneyController extends Controller
                     $bought_list[$wallet->crypto_id]['quantity'] += $wallet->quantity;
 
                 }
+                //mise à jours du solde à chaque achat ou vente de crypto monnaies
                 $total_wallet += $wallet->quantity*$bought->rate;
             };
 

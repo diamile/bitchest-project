@@ -11,7 +11,11 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 
-
+  /*
+    |------------------------------------------------------------------------------------------------------
+    | Création de mon controlleur CreateUserAdminController qui gére la creation d'un nouveau d'utilisateur 
+    |-----------------------------------------------------------------------------------------------------
+   */
 class CreateUserAdminController extends Controller
 {
     /**
@@ -31,7 +35,11 @@ class CreateUserAdminController extends Controller
      */
     
     
-
+   /*
+    |------------------------------------------------------------
+    | Affichage du formulaire de creation du nouveau utilisateur
+    |------------------------------------------------------------
+   */
     public function create()
     {
         $title='Création d\'un nouveau utilisateur';
@@ -40,11 +48,14 @@ class CreateUserAdminController extends Controller
 
 
     
+     /*
+    |------------------------------------------------------------------------------
+    | Recuperation du nouveau utilisateur crée et stockage dans la base de données
+    |------------------------------------------------------------------------------
+   */
      public function store(Request $request)
     {
 
-  
-    
         $rules = array(
             'name'       => 'required',
             'email'      => 'required|email',

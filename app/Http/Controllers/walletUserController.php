@@ -42,7 +42,7 @@ class walletUserController  extends Controller
         $crypto = Currency::find($crypto_id);
         $title = $crypto->name;
 
-        // on récupère l'id du wallet de l'utilisateur en cours
+        // recuperation du portefeuille de l'utilisateur encours
         $wallets = Wallet::where('user_id', Auth::id())
             ->where('crypto_id', $crypto_id)
             ->get();
@@ -94,7 +94,6 @@ class walletUserController  extends Controller
         }
 
         // $rate = Cours le plus récent
-       
         foreach ($boughts as $bought){
             $rate = $bought->rate;
 
@@ -109,16 +108,14 @@ class walletUserController  extends Controller
 
 
         //prix en euros lors de l'achat
-
-        
         $buy_euro = $boughts_rate[0]->quantity * $boughts_rate[0]->rate;
 
     
-        //prix en euros maintenant
+        //prix en euros en fonction de l'evolution du taux
         $sell_euro = $boughts_rate[0]->quantity * $rate;
 
        
-        //plus-value
+        //plus-value:difference entre le prix d'achat et le prix de revente
         $capital_gain = $sell_euro - $buy_euro;
 
 
@@ -134,24 +131,34 @@ class walletUserController  extends Controller
 
 
 
-
+ /*
+    |------------------------------------------------------------------------------------------------------------------------------
+    |  Creation de de la fonction destroy qui supprime automatiquement le crypto monnai dans le portefeuille aprés l'avoir vendu
+    |-------------------------------------------------------------------------------------------------------------------------------
+  */
     public function destroy($id){
+
         $destroyCrypto=wallet::find($id);
-        $showProduct=Transaction::find($id)->wallet;
-        $quantity=$showProduct->quantity;
+
+        $transaction_in_live=Transaction::find($id)->wallet;
+
+        $quantity=$transaction_in_live->quantity;
+
         $history=History::find($id)->rate;
         
-       $prix_vente=0;
-
+        $prix_vente=0;
+       
+       //la valeur du crypto monnaie aprés vente.
         $prix_vente+=$quantity*$history;
 
         Session::put('prix_vente', $prix_vente);
       
+        //supression du crypto monnaie dans ma table portefeuille apres vente.
         $destroyCrypto->delete();
 
         Session::flash('flash_message', 'Votre crypto monnaie a  été vendu avec succées !');
 
-          return redirect('/wallet')->with('success','prix_vente');
+          return redirect('/wallet')->with('success',$prix_vente);
 
     
     }

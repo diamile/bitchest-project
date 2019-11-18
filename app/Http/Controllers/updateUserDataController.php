@@ -10,10 +10,15 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-//use Illuminate\Http\Request;
+
 
 use App\User;
 
+/*
+    |---------------------------------------------------------------------------------------------------------------------------------
+    | Creation de  de montrolleur de resource updateUserDataController afin traiter les données des utilisateurs:modifier,supprimer 
+    |---------------------------------------------------------------------------------------------------------------------------------
+*/
 
 class updateUserDataController extends Controller
 {
@@ -72,6 +77,14 @@ class updateUserDataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+   /*
+    |-------------------------------------
+    | Affichage des données personnelles
+    |-------------------------------------
+   */
+
+
     public function edit($id)
     {
         $title = "Données de l'utilisateur";
@@ -88,6 +101,12 @@ class updateUserDataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     /*
+    |--------------------------------------------
+    | Modification des données des utilisateurs
+    |--------------------------------------------
+   */
     public function update($id)
     {
         
@@ -109,7 +128,7 @@ class updateUserDataController extends Controller
 
         } else {
             
-
+            //recuperation des nouvelles données apres modification
             $user = User::find($id);
 
             $user->name       = Input::get('name');
@@ -131,6 +150,12 @@ class updateUserDataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     /*
+    |-------------------------------
+    | Suppression d'une utilisateur
+    |-------------------------------
+   */
     public function destroy($id)
     {
         

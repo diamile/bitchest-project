@@ -13,6 +13,12 @@ use App\Wallet;
 use Illuminate\Support\Facades\DB;
 use App\Currency;
 
+
+ /*
+    |------------------------------------------------------------------------------------------
+    |  Création de CustomerDataController qui affiche les données personnells du client encours
+    |------------------------------------------------------------------------------------------
+*/
 class CustomerDataController extends Controller
 {
     /**
@@ -30,16 +36,24 @@ class CustomerDataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $title = 'Mes données personnelles';
 
+        //recuperation de l'utilisateur encours
         $users = User::where('id', Auth::id())->get();
 
         return view('customer/customer_data', compact('title','total'));
     }
 
 
+    /*
+    |------------------------------------------------------
+    |  Affichage des données personnelles du client encours
+    |-------------------------------------------------------
+   */
     public function edit($id)
     {
         $title = 'Données personnelles';
@@ -76,6 +90,11 @@ class CustomerDataController extends Controller
         return view('customer/customer_data', compact('title','users','total_wallet'));
     }
 
+    /*
+    |---------------------------------------------------------------
+    |  Modification des données personnelles du client encours
+    |---------------------------------------------------------------
+   */
     public function update($id)
     {
 
@@ -96,7 +115,7 @@ class CustomerDataController extends Controller
 
         } else {
             
-            //modification des données
+            //recuperation des nouvelles données apres modification
 
             $user = User::find($id);
 

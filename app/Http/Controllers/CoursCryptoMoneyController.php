@@ -10,6 +10,11 @@ use App\Wallet;
 use App\User;
 use DB;
 
+ /*
+    |--------------------------------------------------------------------------------------------------------
+    | Creation de mon controlleur CoursCryptoMoneyController qui permet l'Affichage des cours de crypto monnaie
+    |--------------------------------------------------------------------------------------------------------------
+   */
 class CoursCryptoMoneyController extends Controller
 {
     /**
@@ -31,9 +36,20 @@ class CoursCryptoMoneyController extends Controller
     {
         $title = 'Cours des crypto monnaies';
 
+    /*
+    |----------------------------------------------------------------------------------------------------
+    | Recuperation de tous les crypto monnaies , le client encours , et le portefeuille du client encours
+    |-----------------------------------------------------------------------------------------------------
+    */
         $crypto_currencies = Currency::all();
         $users = User::where('id', Auth::id())->get();
         $wallets = Wallet::where('user_id', Auth::id())->get();
+
+     /*
+    |----------------------------------------------------------------------------------------------------------------------------
+    | Recuperation des noms des crypto monnaies, logo , et l'id via une requéte de jointure entre ma table histories et currencies
+    |-----------------------------------------------------------------------------------------------------------------------------
+    */
         $crypto_history = DB::table('histories')
             ->select(DB::raw('currencies.id,currencies.name, currencies.logo, max(histories.date) AS date, ANY_VALUE(histories.rate) AS rate'))
             ->join('currencies', 'histories.crypto_id', '=', 'currencies.id')
@@ -64,6 +80,7 @@ class CoursCryptoMoneyController extends Controller
                     $bought_list[$wallet->crypto_id]['quantity'] += $wallet->quantity;
 
                 }
+                //mise à jour du solde
                 $total_wallet += $wallet->quantity*$bought->rate;
             };
 
