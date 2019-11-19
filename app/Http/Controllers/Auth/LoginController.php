@@ -31,7 +31,11 @@ class LoginController extends Controller
     protected function redirectTo()
 
     {
-
+    /*
+    |----------------------------------------------------------------------------------------------------
+    | Verification si l'utilisateur est un administrateur ou un client afin de le rediriger vers sa page .
+    |-----------------------------------------------------------------------------------------------------
+    */
         if ($this->guard()->user()->isAdmin()) {
 
             return 'users';

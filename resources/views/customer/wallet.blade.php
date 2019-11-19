@@ -37,7 +37,7 @@
                             </div>
                         @endif
                         
-
+                      {{--Affichage du portefeuille de chaque utilisateur---}}
                         <section class="col-md-12">
                             <table class="table table-striped">
                                 <thead>

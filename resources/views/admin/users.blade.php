@@ -7,7 +7,7 @@
             @include('admin.layouts.partials._sidenav')
 
             <section class="col-md-8">
-                
+
                 <section class="panel panel-default">
                         <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
                                 <h3 class="text-center">{{$title}}</h3>
@@ -18,6 +18,12 @@
                        @if(Session::has('flash_message'))
                             <div class="alert alert-success">
                                 {{ Session::get('flash_message') }}
+                            </div>
+                        @endif
+
+                        @if(Session::has('danger_message'))
+                            <div class="alert alert-danger">
+                                {{ Session::get('danger_message') }}
                             </div>
                         @endif
 

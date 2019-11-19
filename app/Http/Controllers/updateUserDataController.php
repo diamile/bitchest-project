@@ -163,7 +163,7 @@ class updateUserDataController extends Controller
 
         $deletedUser->delete();
  
-        Session::flash('flash_message', 'Utilisateur supprimée avec succés!');
+        Session::flash('danger_message', 'Utilisateur supprimée avec succés!');
  
         return redirect('users');
     }
