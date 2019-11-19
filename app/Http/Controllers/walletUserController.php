@@ -60,7 +60,7 @@ class walletUserController  extends Controller
                 ->orderBy('histories.crypto_id')
                 ->get();
 
-
+              
             if (!isset($bought_list[$wallet_total->crypto_id])) {
                 $bought_list[$wallet_total->crypto_id]['CryptoCurrency'] = $CryptoCurrency;
                 $bought_list[$wallet_total->crypto_id]['quantity'] = $wallet_total->quantity;
