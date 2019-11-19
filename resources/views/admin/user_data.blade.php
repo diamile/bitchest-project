@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
+    <article class="container">
+        <section class="row">
 
             @include('admin.layouts.partials._sidenav')
 
-            <div class="col-md-8 card text-white bg-primary mb-3">
-                <div class="panel panel-default">
-                    
+            <section class="col-md-8 card text-white bg-primary mb-3">
 
-                    <div class="panel-body">
+                <section class="panel panel-default">
+                    
+                    <section class="panel-body">
 
                             <div class="panel-heading"><h3 class="text-center">{{$title}}</h3></div><br>
 
@@ -21,7 +21,8 @@
                                {{$error}}
                             </div>
                        @endforeach
-                        <div class="col-md-12">
+
+                        <section class="col-md-12">
                             @foreach($users as $user)
 
                             
@@ -69,13 +70,13 @@
                                         </div>
                                 @endforeach
 
-                                
                            {!! Form::close() !!}
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                         </section>
+
+                    </section>
+                </section>
+            </section>
+        </section>
+    </article>
 @endsection

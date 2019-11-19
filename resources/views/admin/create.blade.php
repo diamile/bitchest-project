@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
+    <article class="container">
+        <section class="row">
 
             @include('admin.layouts.partials._sidenav')
 
-            <div class="col-md-8 card text-white bg-primary mb-3">
-                <div class="panel panel-default">
+            <section class="col-md-8 card text-white bg-primary mb-3">
+                <section class="panel panel-default">
                         <div class="panel-heading"><h3 class="text-center">{{$title}}</h3></div><br>
 
                         <hr style="background-color:white;">
@@ -85,8 +85,8 @@
                         </div>
 
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </section>
+            </section>
+        </section>
+    </article>
 @endsection

@@ -20,6 +20,9 @@
                                {{$error}}
                             </div>
                        @endforeach
+
+                       {{-- Achats des crypto monnaies--}}
+                       
                         <div class="col-md-12 card text-white bg-primary mb-3">
                             @foreach($users as $user)
 

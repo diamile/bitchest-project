@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container PersonnalData">
-        <div class="row">
+
+    <article class="container PersonnalData">
+        <section class="row">
 
             @include('admin.layouts.partials._sidenav')
 
-            <div class="col-md-8">
-                <div class="panel panel-default">
+            <section class="col-md-8">
+
+                <section class="panel panel-default">
                     <div class="panel-heading"><h1>{{$title}}</h1></div>
 
                     <div class="panel-body ">
-
 
                         <div class="col-md-12">
                             @foreach($users as $user)
@@ -76,8 +77,8 @@
                         </div>
 
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </section>
+            </section>
+        </section>
+    </article>
 @endsection

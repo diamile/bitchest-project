@@ -16,7 +16,7 @@
                            </div>
 
                         <section class="col-md-12">
-                            {{-- <h2>Mes achats</h2> --}}
+                            {{-- Affichage de l'historique de  mes achats--}}
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -35,14 +35,14 @@
                                         <td>{{$rate}}</td>
                                         
                                         <td>{{$capital_gain}} €</td>
-                                        {{-- <td><a href="{{route('sell')}}" class="btn btn-primary btn-xs">Vendre</a></td> --}}
+                                    
                                     <td><a href="{{route('destroyCrypto',$transaction->id)}}" class="btn btn-primary btn-xs">Vendre</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                             <p>Total : <strong>{{$total}} {{$title}}</strong></p>
-                            <p class="Pt30">*Plus-value actuelle (gain en cas de vente)</p>
+                            
 
                         </section>
 

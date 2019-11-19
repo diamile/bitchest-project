@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
+    <article class="container">
+        <section class="row">
 
             @include('admin.layouts.partials._sidenav')
 
-            <div class="col-md-8">
-                <div class="panel panel-default">
+            <section class="col-md-8">
+                <section class="panel panel-default">
                     
                         <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
                                 <h3 class="text-center">{{$title}}</h3>
                        </div>
 
-                    <div class="panel-body">
+                    <section class="panel-body">
 
 
-                        <div class="col-md-12">
+                        <section class="col-md-12">
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -40,11 +40,11 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                        </div>
+                        </section>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </article>
 @endsection

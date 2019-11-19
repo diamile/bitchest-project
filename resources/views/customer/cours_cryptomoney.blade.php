@@ -6,13 +6,11 @@
 
             @include('customer.partials.sidenav')
 
-            <div class="col-md-8">
-                <div class="panel panel-default">
+            <section class="col-md-8">
+                <section class="panel panel-default">
                 
 
                     <div class="panel-body">
-
-                            
 
                         <div class="col-md-12">
 
@@ -54,8 +52,8 @@
                         </div>
 
                     </div>
-                </div>
-            </div>
+                </section>
+            </section>
         </section>
     </article>
 @endsection

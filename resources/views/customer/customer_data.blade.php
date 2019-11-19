@@ -16,6 +16,8 @@
                                
                            @foreach($users as $user)
 
+                                 {{-- Affichage des données personnelles du client encours--}}
+                                 
                                  <form  method="post" action="{{ route('customer_data.update',$user->id) }}" >
                                     @csrf
                                     @method('PATCH')
