@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
+    <article class="container">
+        <section class="row">
 
             @include('customer.partials.sidenav')
 
@@ -15,7 +15,7 @@
                                 <h3 class="text-center">{{$title}}</h3>
                            </div>
 
-                        <div class="col-md-12">
+                        <section class="col-md-12">
                             {{-- <h2>Mes achats</h2> --}}
                             <table class="table table-striped">
                                 <thead>
@@ -44,13 +44,13 @@
                             <p>Total : <strong>{{$total}} {{$title}}</strong></p>
                             <p class="Pt30">*Plus-value actuelle (gain en cas de vente)</p>
 
-                        </div>
+                        </section>
 
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </article>
     {{--Javascript permettant d'afficher la courbe de progression de la crypto monnaie--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>

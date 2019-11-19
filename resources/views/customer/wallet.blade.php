@@ -1,18 +1,34 @@
 @extends('layouts.app')
 
+{{--Page d'accueil de chaque client (portefeuille de chaque client)---}}
 @section('content')
-    <div class="container">
-        <div class="row">
+    <article class="container">
+        <section class="row">
 
             @include('customer.partials.sidenav')
 
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    {{-- {{Session::get('prix_vente')}} --}}
+                    
                     <div class="panel-body">
-
+                            {{--Affichage de la valeur du crypto monnai quand il est vendu---}}
                             <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
-                                    <h3 class="text-center">{{$title}} valeur: {{Session::get('prix_vente')}} €</h3>
+                                    
+                                        
+                                 {{--Affichage de la valeur du crypto monnaie s'il est vendu sinon on affiche rien---}}
+                                            @if(Session::get('prix_vente') =='')
+                                            
+                                            <h3 class="text-center">
+                                               {{$title}}&nbsp;&nbsp;
+                                            </h3>
+
+                                            @else
+                                            <h3 class="text-center">
+                                                {{$title}}&nbsp;&nbsp;  <strong class="btn btn-info">VALEUR &nbsp; :&nbsp;{{Session::get('prix_vente')}} €</strong>
+                                            </h3>
+                                             
+                                            @endif
+                                        
                            </div>
 
                         @if(Session::has('flash_message'))
@@ -22,7 +38,7 @@
                         @endif
                         
 
-                        <div class="col-md-12">
+                        <section class="col-md-12">
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -46,17 +62,17 @@
                                         <td>
                                             <a href="{{route('wallet_user_crypto_money', ['crypto_id' => $currency['currency']->id])}}"
                                                class="btn btn-default btn-xs">
-                                                <input type="button" class="btn btn-primary" value="Historique des achats"/></a>
+                                             <input type="button" class="btn btn-primary" value="Historique des achats"/></a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                        </div>
+                        </section>
 
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </article>
 @endsection

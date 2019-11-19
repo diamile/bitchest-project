@@ -43,7 +43,7 @@
     
 </head>
 <body>
-    <div id="app">
+    <article id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
 
@@ -100,7 +100,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+    </article>
     <script src="{{ asset('js/script.js') }}" defer></script>
 </body>
 </html>

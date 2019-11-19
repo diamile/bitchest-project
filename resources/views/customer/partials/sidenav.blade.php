@@ -1,4 +1,4 @@
-<div class="col-md-4 SideNav">
+<aside class="col-md-4 SideNav">
         <ul class="list-group">
             @foreach($users as $user)
             <li class="list-group-item"><a href="{{ route('customer_data.edit',$user->id) }}"><i class="fa fa-address-card" ></i>&nbsp;Données personnelles</a></li>
@@ -14,6 +14,6 @@
                 <li class="list-group-item card text-white bg-primary mb-3"><strong>SOLDE</strong> :&nbsp; &nbsp;<strong>{{($total_wallet)}} €</strong></li>
             @endforeach
         </ul>
-    </div>
+    </aside>
     
     

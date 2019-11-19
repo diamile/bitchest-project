@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container PersonnalData">
-        <div class="row">
+    <article class="container PersonnalData">
+        <section class="row">
 
             @include('customer.partials.sidenav')
 
@@ -71,6 +71,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </article>
 @endsection

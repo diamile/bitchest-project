@@ -65,18 +65,20 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+
+        <article class="flex-center position-ref full-height">
+            
             @if (Route::has('login'))
-                <div class="top-right links">
+                <section class="top-right links">
                     @auth
                         <a href="{{ url('/wallet') }}">Accueil</a>
                     @else
                         <a href="{{ route('login') }}">Connexion</a>
                     @endauth
-                </div>
+                </section>
             @endif
 
-            <div class="content">
+            <section class="content">
 
                     <div class="title m-b-md">
                          Bienvenu sur
@@ -87,7 +89,8 @@
                 </div>
 
                 
-            </div>
-        </div>
+            </section>
+
+        </article>
     </body>
 </html>

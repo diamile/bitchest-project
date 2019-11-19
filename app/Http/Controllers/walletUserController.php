@@ -144,14 +144,16 @@ class walletUserController  extends Controller
 
         $quantity=$transaction_in_live->quantity;
 
-        $history=History::find($id)->rate;
+        $rate=History::find($id)->rate;
         
         $prix_vente=0;
        
        //la valeur du crypto monnaie aprés vente.
-        $prix_vente+=$quantity*$history;
+        $prix_vente+=$quantity*$rate;
 
         Session::put('prix_vente', $prix_vente);
+        
+        $valeur='valeur:';
       
         //supression du crypto monnaie dans ma table portefeuille apres vente.
         $destroyCrypto->delete();

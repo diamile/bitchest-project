@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
+    <article class="container">
+        <section class="row">
 
             @include('customer.partials.sidenav')
 
@@ -63,6 +63,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </article>
 @endsection

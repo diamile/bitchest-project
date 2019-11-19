@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
+    <article class="container">
+        <section class="row">
 
             @include('customer.partials.sidenav')
 
@@ -34,7 +34,7 @@
                                     <tr>
                                         <td>
                                            {{--lien vers page du graphique de la crypto monnaie--}}
-                                            <a href="">
+                                        <a href="{{route('evolution', $crypto->id)}}">
                                                 <img src="{{URL::asset('/images')}}/{{ $crypto->logo }}"/> {{$crypto->name}}
                                             </a>
                                         </td>
@@ -56,6 +56,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </article>
 @endsection

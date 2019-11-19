@@ -38,7 +38,7 @@ class EvolutionCryptoMoneyController extends Controller
     public function index(Request $request, $crypto_id)
     {
     
-        $title = ' - Courbe de d\'evolution';
+        $title = ' - Courbe d\'evolution';
         
     /*
     |-----------------------------------------------------------------------------------------------------------------------
